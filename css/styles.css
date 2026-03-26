@@ -327,11 +327,6 @@ a:focus-visible {
     padding-top: calc(var(--header-h) + var(--safe-top) + 0.75rem);
     border-left: 1px solid var(--border);
   }
-
-  /* Mobile drawer: title replaces “Home” */
-  .nav-home {
-    display: none;
-  }
 }
 
 @media (min-width: 900px) {
