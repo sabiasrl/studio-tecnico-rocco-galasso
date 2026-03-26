@@ -437,7 +437,6 @@ a:focus-visible {
   display: block;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  vertical-align: middle;
 }
 
 .hero-eyebrow {
@@ -712,6 +711,35 @@ section {
   margin: 0;
   color: var(--text-muted);
   font-size: 0.95rem;
+}
+
+.formation {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.formation-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.formation-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.formation-years {
+  color: color-mix(in srgb, var(--text-muted) 70%, var(--inter-black));
 }
 
 /* —— Services —— */
