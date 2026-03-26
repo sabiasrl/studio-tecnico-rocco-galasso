@@ -73,8 +73,11 @@
 
     <header class="site-header">
       <a class="logo" href="#top">
-        Rocco Galasso
-        <span>Studio tecnico — Geometra</span>
+        <img class="logo-mark" src="assets/favicon.jpg" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
+        <span class="logo-text">
+          <span class="logo-name">Rocco Galasso</span>
+          <span class="logo-sub">Studio tecnico — Geometra</span>
+        </span>
       </a>
       <button
         class="nav-toggle"
@@ -109,7 +112,10 @@
         <div class="hero-layout">
           <div class="hero-inner">
             <p class="hero-eyebrow">Studio Tecnico — Geometra</p>
-            <h1 id="hero-title" class="hero-title">Rocco Galasso</h1>
+            <div class="hero-title-row">
+              <img class="hero-mark" src="assets/favicon.jpg" alt="" width="40" height="40" decoding="async" aria-hidden="true" />
+              <h1 id="hero-title" class="hero-title">Rocco Galasso</h1>
+            </div>
             <p class="hero-location">Potenza e provincia (PZ)</p>
             <p class="hero-subtitle">
               Progettazione, direzione lavori, topografia, servizi catastali e successioni
@@ -377,10 +383,13 @@
               </p>
             </div>
           </div>
-          <p class="section-intro section-intro--tight">
-            <strong>Formazione:</strong> Università degli Studi della Basilicata (1990–1992); I.T.G.
-            &ldquo;De Lorenzo&rdquo; — Potenza (1984–1990).
-          </p>
+          <div class="formation">
+            <p class="formation-label"><strong>Formazione</strong></p>
+            <ul class="formation-list" aria-label="Formazione">
+              <li>Università degli Studi della Basilicata <span class="formation-years">(1990–1992)</span></li>
+              <li>I.T.G. &ldquo;De Lorenzo&rdquo; — Potenza <span class="formation-years">(1984–1990)</span></li>
+            </ul>
+          </div>
         </div>
       </section>
 

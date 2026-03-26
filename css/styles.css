@@ -1,20 +1,21 @@
-/* Geometra Rocco Galasso — mobile first, layout formale; palette nero e blu (ispirazione cromatica) */
+/* Geometra Rocco Galasso — mobile first, layout formale */
 :root {
-  --inter-black: #0c0c0c;
-  --inter-blue: #0068a8;
-  --inter-blue-dark: #004a7a;
-  --inter-blue-soft: #e8f2f8;
-  --inter-blue-mid: #3d8eb9;
-  --bg-page: #f2f4f7;
+  /* Neutral + navy accent (più “studio”, meno “landing”) */
+  --inter-black: #0f1115;
+  --inter-blue: #1f3a5a; /* accent */
+  --inter-blue-dark: #162a42;
+  --inter-blue-soft: #eef2f5;
+  --inter-blue-mid: #2c4f78;
+  --bg-page: #f6f5f2; /* warm neutral */
   --bg-surface: #ffffff;
-  --text: #1a1d21;
-  --text-muted: #5a6169;
-  --border: #d8dde3;
-  --border-strong: #b8c0ca;
+  --text: #14181f;
+  --text-muted: #4b5563;
+  --border: #d7dbe2;
+  --border-strong: #b8c1cc;
   --font-serif: "Source Serif 4", "Georgia", serif;
   --font-sans: "Source Sans 3", system-ui, sans-serif;
-  --radius: 6px;
-  --shadow-sm: 0 1px 3px rgba(12, 12, 12, 0.06);
+  --radius: 10px;
+  --shadow-sm: 0 1px 2px rgba(15, 17, 21, 0.05), 0 10px 24px rgba(15, 17, 21, 0.06);
   --header-h: 4rem;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
@@ -37,8 +38,8 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 1.03rem;
+  line-height: 1.7;
   color: var(--text);
   background: var(--bg-page);
   -webkit-font-smoothing: antialiased;
@@ -78,6 +79,15 @@ a:hover {
   left: 0;
 }
 
+.btn:focus-visible,
+.nav-toggle:focus-visible,
+.nav-panel a:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(31, 58, 90, 0.35);
+  outline-offset: 3px;
+  border-radius: calc(var(--radius) - 2px);
+}
+
 /* —— Header —— */
 .site-header {
   position: fixed;
@@ -92,7 +102,8 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  background: var(--bg-surface);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: saturate(170%) blur(10px);
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
 }
@@ -109,15 +120,49 @@ a:hover {
   letter-spacing: -0.02em;
   color: var(--inter-black);
   line-height: 1.25;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
-.logo span {
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-name {
   display: block;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--inter-black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logo-sub {
+  display: block;
+  margin-top: 0.15rem;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--inter-blue);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav-toggle {
@@ -176,7 +221,7 @@ a:hover {
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 90;
-  box-shadow: -12px 0 40px rgba(12, 12, 12, 0.12);
+  box-shadow: -12px 0 40px rgba(15, 17, 21, 0.16);
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -223,7 +268,7 @@ a:hover {
     position: fixed;
     inset: 0;
     z-index: 80;
-    background: rgba(12, 12, 12, 0.42);
+    background: rgba(15, 17, 21, 0.42);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -337,6 +382,24 @@ a:hover {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+
+.hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.hero-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  flex-shrink: 0;
+  display: block;
+  transform: translateY(-5px);
+}
+
 
 @media (min-width: 480px) {
   .hero-inner {
@@ -456,7 +519,7 @@ a:hover {
 .btn-secondary {
   background: var(--bg-surface);
   color: var(--inter-blue);
-  border-color: var(--inter-blue);
+  border-color: rgba(31, 58, 90, 0.55);
 }
 
 .btn-secondary:hover {
@@ -467,19 +530,19 @@ a:hover {
 
 .btn-secondary.btn--whatsapp {
   gap: 0.5rem;
-  background: #25d366;
-  color: #fff;
-  border-color: #20ba5a;
+  background: var(--bg-surface);
+  color: var(--inter-blue);
+  border-color: rgba(31, 58, 90, 0.55);
 }
 
 .btn-secondary.btn--whatsapp:hover {
-  background: #1da851;
-  border-color: #179848;
-  color: #fff;
+  background: var(--inter-blue-soft);
+  border-color: var(--inter-blue-dark);
+  color: var(--inter-blue-dark);
 }
 
 .btn-secondary.btn--whatsapp .icon-whatsapp {
-  color: #fff;
+  color: currentColor;
 }
 
 .svg-sprite {
@@ -491,7 +554,7 @@ a:hover {
 
 .icon-whatsapp {
   flex-shrink: 0;
-  color: #25d366;
+  color: var(--inter-blue);
   display: block;
 }
 
@@ -508,7 +571,7 @@ a:hover {
 
 /* —— Sections —— */
 section {
-  padding: 2.75rem max(1.25rem, var(--safe-left)) 2.75rem max(1.25rem, var(--safe-right));
+  padding: 3.25rem max(1.25rem, var(--safe-left)) 3.25rem max(1.25rem, var(--safe-right));
 }
 
 @media (max-width: 767px) {
@@ -682,13 +745,14 @@ section {
   border-radius: var(--radius);
   border: 1px solid var(--border);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 2px rgba(15, 17, 21, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-card:hover {
-  border-color: var(--inter-blue-mid);
-  box-shadow: 0 4px 16px rgba(0, 104, 168, 0.1);
+  transform: translateY(-2px);
+  border-color: rgba(31, 58, 90, 0.32);
+  box-shadow: 0 12px 30px rgba(15, 17, 21, 0.10);
 }
 
 .service-card-media {
@@ -706,7 +770,7 @@ section {
 }
 
 .service-card-media--renewable {
-  box-shadow: inset 0 -3px 0 var(--inter-blue);
+  box-shadow: inset 0 -2px 0 rgba(31, 58, 90, 0.85);
 }
 
 .service-card-body {
@@ -744,16 +808,16 @@ section {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.22rem 0.5rem;
-  border-radius: 3px;
-  background: var(--inter-blue-soft);
+  border-radius: 999px;
+  background: transparent;
   color: var(--inter-blue-dark);
-  border: 1px solid rgba(0, 104, 168, 0.2);
+  border: 1px solid rgba(31, 58, 90, 0.22);
 }
 
 .skill-tag--renewable {
-  background: #e8eef2;
+  background: transparent;
   color: var(--inter-blue-dark);
-  border-color: rgba(0, 104, 168, 0.25);
+  border-color: rgba(31, 58, 90, 0.22);
 }
 
 .subsection-title {
@@ -883,7 +947,7 @@ section {
   display: grid;
   gap: 0.25rem;
   padding: 0.85rem 0;
-  border-bottom: 1px solid rgba(0, 104, 168, 0.15);
+  border-bottom: 1px solid rgba(31, 58, 90, 0.12);
 }
 
 .company-data-row:first-of-type {
@@ -947,7 +1011,7 @@ section {
   padding: 2.25rem max(1.25rem, var(--safe-left)) max(2rem, var(--safe-bottom)) max(1.25rem, var(--safe-right));
   background: var(--inter-black);
   color: #c9cdd3;
-  border-top: 3px solid var(--inter-blue);
+  border-top: 2px solid rgba(31, 58, 90, 0.95);
 }
 
 .footer-inner {
