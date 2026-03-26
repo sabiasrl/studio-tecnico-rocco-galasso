@@ -241,15 +241,6 @@ a:focus-visible {
   border-bottom: 1px solid var(--border);
 }
 
-.nav-panel-mark {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: #fff;
-  flex-shrink: 0;
-}
-
 .nav-panel-title {
   min-width: 0;
   display: flex;
@@ -336,6 +327,11 @@ a:focus-visible {
     padding-top: calc(var(--header-h) + var(--safe-top) + 0.75rem);
     border-left: 1px solid var(--border);
   }
+
+  /* Mobile drawer: title replaces “Home” */
+  .nav-home {
+    display: none;
+  }
 }
 
 @media (min-width: 900px) {
@@ -391,6 +387,11 @@ a:focus-visible {
   .nav-panel a:hover {
     background: var(--inter-blue-soft);
     color: var(--inter-blue-dark);
+  }
+
+  /* Desktop nav: no drawer header */
+  .nav-panel-head {
+    display: none;
   }
 }
 
