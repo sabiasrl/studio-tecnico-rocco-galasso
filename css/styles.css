@@ -232,6 +232,51 @@ a:focus-visible {
   transform: translateX(0);
 }
 
+.nav-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0 1rem;
+  margin: 0 0 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-panel-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.nav-panel-title {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.nav-panel-name {
+  font-weight: 700;
+  color: var(--inter-black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-panel-sub {
+  margin-top: 0.15rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--inter-blue);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .nav-panel ul {
   list-style: none;
   margin: 0;
@@ -262,7 +307,7 @@ a:focus-visible {
   color: var(--inter-blue);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 899px) {
   .nav-backdrop {
     display: block;
     position: fixed;
@@ -281,9 +326,19 @@ a:focus-visible {
     visibility: visible;
     pointer-events: auto;
   }
+
+  /* Mobile: panel overlays full height; content starts below header */
+  .nav-panel {
+    top: 0;
+    bottom: auto;
+    height: 100dvh;
+    max-height: 100dvh;
+    padding-top: calc(var(--header-h) + var(--safe-top) + 0.75rem);
+    border-left: 1px solid var(--border);
+  }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .site-header {
     min-height: var(--header-h);
     height: var(--header-h);
