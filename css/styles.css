@@ -486,8 +486,6 @@ a:focus-visible {
   width: 100%;
   height: auto;
   display: block;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
 }
 
 .hero-eyebrow {
