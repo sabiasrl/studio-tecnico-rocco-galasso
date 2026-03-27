@@ -768,6 +768,10 @@ section {
   border-top: 1px solid var(--border);
 }
 
+.formation--certifications {
+  margin-top: 1rem;
+}
+
 .formation-label {
   margin: 0 0 0.5rem;
   font-size: 0.78rem;
