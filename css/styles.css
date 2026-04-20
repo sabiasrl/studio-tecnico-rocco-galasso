@@ -5,13 +5,11 @@
   --inter-blue: #1f3a5a; /* accent */
   --inter-blue-dark: #162a42;
   --inter-blue-soft: #eef2f5;
-  --inter-blue-mid: #2c4f78;
   --bg-page: #f6f5f2; /* warm neutral */
   --bg-surface: #ffffff;
   --text: #14181f;
   --text-muted: #4b5563;
   --border: #d7dbe2;
-  --border-strong: #b8c1cc;
   --font-serif: "Source Serif 4", "Georgia", serif;
   --font-sans: "Source Sans 3", system-ui, sans-serif;
   --radius: 10px;
@@ -419,35 +417,18 @@ a:focus-visible {
   z-index: 1;
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero-layout {
-  position: relative;
-  z-index: 3;
-}
-
 @media (max-width: 839px) {
   .hero {
     min-height: calc(100vh - var(--header-h) - var(--safe-top));
     display: grid;
     align-items: center;
     padding: 0 max(1rem, var(--safe-left)) max(1rem, var(--safe-right));
-    background-attachment: scroll;
   }
 }
 
 .hero-layout {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
@@ -496,77 +477,7 @@ a:focus-visible {
   transform: translateY(-5px);
 }
 
-
-@media (min-width: 480px) {
-  .hero-inner {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-.hero-media {
-  order: -1;
-  margin: 0;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-  background: var(--inter-black);
-}
-
-@media (min-width: 480px) {
-  .hero-media {
-    margin: 0;
-  }
-}
-
-@media (min-width: 840px) {
-  .hero-media {
-    order: 0;
-    margin: 0;
-  }
-}
-
-.hero-media img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.hero-media--logo {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  border: none;
-  box-shadow: none;
-  background: transparent;
-  overflow: hidden;
-  pointer-events: none;
-  display: none;
-}
-
-.hero-media--logo img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0.18;
-}
-
 @media (max-width: 839px) {
-  .hero-media--logo {
-    position: absolute;
-    border: none;
-    box-shadow: none;
-  }
-
-  .hero-media--logo img {
-    object-fit: cover;
-    opacity: 0.24;
-  }
-
   .hero-layout {
     min-height: 100%;
     display: flex;
@@ -777,11 +688,6 @@ section {
   font-size: 0.98rem;
 }
 
-.section-intro--tight {
-  margin-top: 1.5rem;
-  margin-bottom: 0;
-}
-
 /* Lead Chi sono: su tablet/desktop niente 58ch; da ~lg una sola riga se c’è spazio */
 @media (min-width: 768px) {
   .about-lead {
@@ -824,31 +730,6 @@ section {
 .about-card--with-photo {
   padding: 0 0 1.35rem;
   overflow: hidden;
-}
-
-.about-card--with-photo .about-card__photo {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 280px;
-  overflow: hidden;
-  background: #e8eaed;
-}
-
-.about-card--with-photo .about-card__photo img {
-  width: 100%;
-  max-width: 360px;
-  height: 280px;
-  object-fit: cover;
-  object-position: 92% 88%;
-  display: block;
-}
-
-@media (max-width: 479px) {
-  .about-card--with-photo .about-card__photo img {
-    max-width: none;
-  }
 }
 
 .about-card--with-photo h3,
@@ -1005,12 +886,6 @@ section {
   background: transparent;
   color: var(--inter-blue-dark);
   border: 1px solid rgba(31, 58, 90, 0.22);
-}
-
-.skill-tag--renewable {
-  background: transparent;
-  color: var(--inter-blue-dark);
-  border-color: rgba(31, 58, 90, 0.22);
 }
 
 .subsection-title {
@@ -1175,11 +1050,6 @@ section {
   font-size: 0.95rem;
   color: var(--inter-black);
   word-break: break-word;
-}
-
-.company-data-value {
-  min-height: 1.35em;
-  color: var(--text-muted);
 }
 
 .company-data-hint {
