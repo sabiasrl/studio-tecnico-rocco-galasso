@@ -396,18 +396,53 @@ a:focus-visible {
 .hero {
   position: relative;
   padding: calc(var(--header-h) + var(--safe-top) + 2.25rem) max(1rem, var(--safe-left)) 2.5rem max(1rem, var(--safe-right));
-  background: var(--bg-surface);
+  background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/Logo-1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  filter: blur(3px);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero::after {
-  content: "";
+  content: '';
   position: absolute;
+  top: 0;
   left: 0;
-  top: calc(var(--header-h) + var(--safe-top));
+  right: 0;
   bottom: 0;
-  width: 4px;
-  background: var(--inter-blue);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-layout {
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 839px) {
+  .hero {
+    min-height: calc(100vh - var(--header-h) - var(--safe-top));
+    display: grid;
+    align-items: center;
+    padding: 0 max(1rem, var(--safe-left)) max(1rem, var(--safe-right));
+    background-attachment: scroll;
+  }
 }
 
 .hero-layout {
@@ -431,9 +466,17 @@ a:focus-visible {
 
 .hero-inner {
   position: relative;
+  z-index: 2;
   max-width: 40rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: 1.5rem 1rem;
+  background: #ffffff;
+  border-radius: calc(var(--radius) * 1.2);
+  box-shadow: 0 24px 48px rgba(15, 17, 21, 0.08);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .hero-title-row {
@@ -491,19 +534,52 @@ a:focus-visible {
 }
 
 .hero-media--logo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border: none;
+  box-shadow: none;
   background: transparent;
+  overflow: hidden;
+  pointer-events: none;
+  display: none;
+}
+
+.hero-media--logo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.18;
 }
 
 @media (max-width: 839px) {
   .hero-media--logo {
+    position: absolute;
     border: none;
     box-shadow: none;
   }
 
   .hero-media--logo img {
-    width: auto;
-    max-width: 100%;
-    margin: 0 auto;
+    object-fit: cover;
+    opacity: 0.24;
+  }
+
+  .hero-layout {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .hero-inner {
+    gap: 1.4rem;
+  }
+
+  .hero-tagline {
+    margin-bottom: 1rem;
   }
 }
 
@@ -554,10 +630,28 @@ a:focus-visible {
   gap: 0.65rem;
 }
 
+.hero-cta .btn--add-contact {
+  display: none;
+  gap: 0.5rem;
+}
+
+.icon-add {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 839px) {
+  .hero-cta .btn--add-contact {
+    display: inline-flex;
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   padding: 0.7rem 1.25rem;
   min-height: 44px;
   font-family: var(--font-sans);
@@ -597,19 +691,18 @@ a:focus-visible {
 
 .btn-secondary.btn--whatsapp {
   gap: 0.5rem;
-  background: var(--bg-surface);
-  color: var(--inter-blue);
-  border-color: rgba(31, 58, 90, 0.55);
+  background: #25d366;
+  color: #fff;
+  border-color: #25d366;
 }
 
 .btn-secondary.btn--whatsapp:hover {
-  background: var(--inter-blue-soft);
-  border-color: var(--inter-blue-dark);
-  color: var(--inter-blue-dark);
+  background: #1ebe59;
+  border-color: #1ebe59;
 }
 
 .btn-secondary.btn--whatsapp .icon-whatsapp {
-  color: currentColor;
+  color: #fff;
 }
 
 .svg-sprite {

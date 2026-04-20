@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Rocco Galasso
+N:Galasso;Rocco;;;
+ORG:Studio tecnico — Geometra
+TITLE:Geometra
+TEL;TYPE=WORK,VOICE:+39 0971 685033
+TEL;TYPE=CELL,VOICE:+39 347 8803085
+URL:http://geometraroccogalasso.it/
+ADR;TYPE=WORK:;;Avigliano;Potenza;PZ;85021;Italy
+NOTE: Studio tecnico — Geometra. Successioni, rilievi topografici, accatastamenti, frazionamenti, progettazione e direzione lavori.
+END:VCARD
